@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+/*
+Class Selector: Classes can be reused on multiple elements within the same document. Multiple elements can share the same class.
+ID Selector: IDs must be unique within a document. An ID should only be assigned to one HTML element on a page.
+*/
+
+#header {
+    /* styles for the element with ID "header" */
+    color: green;
+    background-color: yellow;
+}
+
+.my-class {
+    /* styles for elements with class "my-class" */
+    color: purple;
+    text-decoration: underline;
+}

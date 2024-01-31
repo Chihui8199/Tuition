@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1 id="header">GPA Calculator</h1>
+
+    <!-- Form for GPA calculation -->
+    <form action="{{ url_for('gpa_calculator') }}" method="post">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required>
+
+        <label for="credits">Credits:</label>
+        <input type="number" id="credits" name="credits" required>
+
+        <label for="grade">Grade:</label>
+        <input type="number" step="0.01" id="grade" name="grade" required>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <!-- Display calculated GPA data if available -->
+    {% if gpa_data %}
+    <h2 class="my-class">Calculated GPA Data</h2>
+    <p>We received {{gpa_data|length}} pieces of data.</p>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Credits</th>
+            <th>Grade</th>
+            <th>Weighted Points</th>
+        </tr>
+        {% for entry in gpa_data %}
+        <tr>
+            <td>{{ entry.subject }}</td>
+            <td>{{ entry.credits }}</td>
+            <td>{{ entry.grade }}</td>
+            <td>{{ entry.weighted_points }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Next button to route to another page -->
+    <a href="{{ url_for('final_gpa') }}"><button type="button">Next</button></a> {% endif %}
+</body>
+
+</html>
